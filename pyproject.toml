@@ -1,0 +1,18 @@
+[project]
+name = "python-cookiecutter"
+version = "0.1.0"
+description = "Cookiecutter template for Python CLI + Web Dashboard"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+managed = true
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.1.0",
+    "ruff>=0.9.4",
+    "mdformat>=0.7.21",
+    "mdformat-gfm>=0.1.13",
+    "mdformat-frontmatter>=2.0.8",
+]
