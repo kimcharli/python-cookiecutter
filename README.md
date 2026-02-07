@@ -31,16 +31,16 @@ cookiecutter /path/to/python-cookiecutter
 
 You will be prompted for:
 
-| Variable | Default | Description |
-| :--- | :--- | :--- |
-| `project_name` | `My Project` | Human-readable project name |
-| `project_slug` | (auto) | Directory and repo name (e.g., `my-project`) |
-| `pkg_name` | (auto) | Python package name (e.g., `my_project`) |
-| `description` | — | Short project description |
-| `author` | — | Author name |
-| `python_version` | `3.13` | Minimum Python version |
-| `include_web_dashboard` | `yes` | Include FastAPI + HTMX dashboard |
-| `include_cli` | `yes` | Include Typer CLI scaffolding |
+| Variable                | Default      | Description                                  |
+| :---------------------- | :----------- | :------------------------------------------- |
+| `project_name`          | `My Project` | Human-readable project name                  |
+| `project_slug`          | (auto)       | Directory and repo name (e.g., `my-project`) |
+| `pkg_name`              | (auto)       | Python package name (e.g., `my_project`)     |
+| `description`           | —            | Short project description                    |
+| `author`                | —            | Author name                                  |
+| `python_version`        | `3.13`       | Minimum Python version                       |
+| `include_web_dashboard` | `yes`        | Include FastAPI + HTMX dashboard             |
+| `include_cli`           | `yes`        | Include Typer CLI scaffolding                |
 
 ## After Generation
 
@@ -90,4 +90,3 @@ my-project/
 └── tests/
     └── __init__.py
 ```
-
