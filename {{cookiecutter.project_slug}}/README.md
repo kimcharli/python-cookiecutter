@@ -27,7 +27,7 @@ uv run pytest
 
 ## Project Structure
 
-```
+```text
 {{ cookiecutter.project_slug }}/
 ├── config/          # YAML configuration files
 ├── data/            # Input/output data (gitignored)

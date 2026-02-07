@@ -24,3 +24,9 @@ repos:
           - mdformat-gfm
           - mdformat-frontmatter
         exclude: '^{{cookiecutter.project_slug}}/'
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.17.2
+    hooks:
+      - id: markdownlint-cli2
+        exclude: '^{{cookiecutter.project_slug}}/'

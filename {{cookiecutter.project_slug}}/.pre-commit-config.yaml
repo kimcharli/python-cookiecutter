@@ -21,3 +21,8 @@ repos:
         additional_dependencies:
           - mdformat-gfm
           - mdformat-frontmatter
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.17.2
+    hooks:
+      - id: markdownlint-cli2

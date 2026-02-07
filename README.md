@@ -54,7 +54,7 @@ uv run pytest
 
 ## Project Structure (Generated)
 
-```
+```text
 my-project/
 ├── .gitignore
 ├── .pre-commit-config.yaml
