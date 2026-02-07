@@ -34,7 +34,9 @@ uv run pytest
 ├── docs/            # Project documentation, ADRs, conventions
 ├── src/             # Application source code
 │   └── {{ cookiecutter.pkg_name }}/
-└── tests/           # Unit and integration tests
+├── tests/           # Unit and integration tests
+├── CHANGELOG.md     # Track project versions and changes
+└── CONTRIBUTING.md  # How to contribute to this project
 ```
 
 ## Documentation

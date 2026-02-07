@@ -58,6 +58,8 @@ uv run pytest
 my-project/
 ├── .gitignore
 ├── .pre-commit-config.yaml
+├── CHANGELOG.md
+├── CONTRIBUTING.md
 ├── pyproject.toml
 ├── README.md
 ├── config/
