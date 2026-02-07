@@ -11,6 +11,7 @@ This file provides context and rules for GitHub Copilot to ensure it follows the
 
 ## Coding Standards
 - **Python**: Target version {{ cookiecutter.python_version }}+.
+- **Linting & Quality**: Adhere strictly to the rules in `.pre-commit-config.yaml`. Always format Python code according to `ruff` and Markdown according to `mdformat`. Do not generate code that would fail pre-commit checks.
 - **Typing**: Use strict type hints for all function signatures.
 - **Paths**: Use `pathlib.Path` exclusively; do not use `os.path`.
 - **Formatting**: Prefer f-strings for string interpolation.

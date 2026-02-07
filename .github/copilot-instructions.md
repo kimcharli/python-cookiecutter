@@ -10,8 +10,8 @@ This file provides context and rules for GitHub Copilot to ensure it follows the
 ## Development Rules
 - **Tooling**: Use `uv` for all dependency management tasks.
 - **Commit Style**: Use **Conventional Commits** (`feat:`, `fix:`, `docs:`, etc.).
+- **Linting & Quality**: Ensure all code and Markdown follow the rules in `.pre-commit-config.yaml`. Specifically, use `ruff` standards for Python and `mdformat` for Markdown. Do not generate code that would require manual fixing to pass pre-commit hooks.
 - **Jinja2 Templating**: When editing files inside `{{cookiecutter.project_slug}}/`, remember that these are templates. Use `{{ cookiecutter.variable }}` syntax correctly.
-- **Code Quality**: Follow the rules defined in `.pre-commit-config.yaml` (Ruff, mdformat).
 
 ## Directory Structure
 - `{{cookiecutter.project_slug}}/`: The project boilerplate source.
