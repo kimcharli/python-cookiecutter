@@ -39,8 +39,9 @@ templates.env.globals["ui"] = ui_content
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse(
+        request,
         "layout.html",
-        {"request": request, "title": "Dashboard"},
+        {"title": "Dashboard"},
     )
 {%- else -%}
 # Web dashboard is disabled. This file is a placeholder.

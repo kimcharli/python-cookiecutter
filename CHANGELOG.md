@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Feat
 
+- add Makefile for automation and template verification
 - finalize changelog and ruff configuration
 
 ### Fix
