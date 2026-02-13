@@ -16,6 +16,7 @@ The initial template had several issues that prevented it from being "ready-to-u
 2.  **Explicit Exclusion**: Configure the root `pyproject.toml` to exclude the `{{cookiecutter.project_slug}}/` directory from linting and formatting to avoid Jinja2 parsing errors.
 3.  **Template Tests**: Include baseline unit tests for both CLI and Web components within the template to ensure a working test suite immediately after generation.
 4.  **Robust Pathing**: Use package-relative path resolution for configuration files in the generated project.
+5.  **Accumulative Changelog**: Use versioned headers (`## [0.1.0]`) to protect manual entries from being overwritten by automated `commitizen` updates.
 
 ## Consequences
 

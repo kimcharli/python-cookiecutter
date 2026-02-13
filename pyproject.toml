@@ -9,10 +9,9 @@ dependencies = []
 managed = true
 
 [tool.ruff]
-exclude = ["{{cookiecutter.project_slug}}"]
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "U", "N"]
+# Template files are excluded in .pre-commit-config.yaml
+# and contain Jinja2 tags that fail ruff parsing.
+lint.select = ["E", "F", "I", "U", "N"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"

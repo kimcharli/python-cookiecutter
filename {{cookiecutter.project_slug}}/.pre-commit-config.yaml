@@ -32,3 +32,12 @@ repos:
     hooks:
       - id: commitizen
         stages: [commit-msg]
+
+  - repo: local
+    hooks:
+      - id: cz-changelog
+        name: update-changelog
+        entry: uv run cz changelog --incremental
+        language: system
+        pass_filenames: false
+        always_run: true
