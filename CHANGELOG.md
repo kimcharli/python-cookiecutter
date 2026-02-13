@@ -22,8 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - add automatic changelog updates to root and template
 - add GitHub Copilot instructions to template and boilerplate
 - initial cookiecutter template for Python CLI + Web projects
+- finalize changelog and ruff configuration
 
 ### Fix
 
 - standardize dependency versions, ruff config, and add template tests
+- ignore template directory in root pytest configuration
 

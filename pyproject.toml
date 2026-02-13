@@ -21,6 +21,10 @@ version_provider = "pep621"
 update_changelog_on_bump = true
 major_version_zero = true
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["{{cookiecutter.project_slug}}"]
+
 [dependency-groups]
 dev = [
     "pre-commit>=4.1.0",
