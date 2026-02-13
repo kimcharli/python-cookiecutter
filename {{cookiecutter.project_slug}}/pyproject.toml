@@ -6,14 +6,14 @@ readme = "README.md"
 requires-python = ">={{ cookiecutter.python_version }}"
 dependencies = [
 {%- if cookiecutter.include_cli == "yes" %}
-    "typer>=0.21.1",
+    "typer>=0.15.1",
     "shellingham>=1.5.4",
 {%- endif %}
 {%- if cookiecutter.include_web_dashboard == "yes" %}
-    "aiofiles>=25.1.0",
-    "fastapi>=0.128.0",
+    "aiofiles>=24.1.0",
+    "fastapi>=0.115.6",
     "jinja2>=3.1.6",
-    "uvicorn>=0.40.0",
+    "uvicorn>=0.34.0",
 {%- endif %}
     "pyyaml>=6.0.3",
 ]
@@ -30,13 +30,13 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
-    "mdformat>=1.0.0",
-    "mdformat-frontmatter>=2.0.10",
-    "mdformat-gfm>=1.0.0",
-    "pre-commit>=4.5.1",
-    "pymarkdownlnt>=0.9.35",
-    "pytest>=9.0.2",
-    "ruff>=0.14.14",
+    "mdformat>=0.7.21",
+    "mdformat-frontmatter>=2.0.8",
+    "mdformat-gfm>=0.1.13",
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.3",
+    "ruff>=0.9.4",
+    "commitizen>=4.13.7",
 ]
 
 {% if cookiecutter.include_cli == "yes" -%}
@@ -51,6 +51,14 @@ target-version = "py{{ cookiecutter.python_version | replace('.', '') }}"
 [tool.ruff.lint]
 select = ["E", "F", "I", "U", "N"]
 ignore = []
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = true
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

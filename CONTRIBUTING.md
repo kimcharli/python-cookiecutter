@@ -45,6 +45,6 @@ uv run pre-commit run --all-files
 ## 🚀 Submitting Changes
 
 1. Create a new branch.
-2. Make your changes to the template files or the boilerplate.
-3. Ensure all pre-commit checks are green.
-4. Submit a Pull Request.
+1. Make your changes to the template files or the boilerplate.
+1. Ensure all pre-commit checks are green.
+1. Submit a Pull Request.

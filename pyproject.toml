@@ -8,6 +8,20 @@ dependencies = []
 [tool.uv]
 managed = true
 
+[tool.ruff]
+exclude = ["{{cookiecutter.project_slug}}"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "U", "N"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = true
+
 [dependency-groups]
 dev = [
     "pre-commit>=4.1.0",
@@ -15,4 +29,5 @@ dev = [
     "mdformat>=0.7.21",
     "mdformat-gfm>=0.1.13",
     "mdformat-frontmatter>=2.0.8",
+    "commitizen>=4.13.7",
 ]

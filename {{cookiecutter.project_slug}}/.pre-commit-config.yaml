@@ -26,3 +26,9 @@ repos:
     rev: v0.17.2
     hooks:
       - id: markdownlint-cli2
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.13.7
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]

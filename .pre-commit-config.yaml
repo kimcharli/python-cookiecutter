@@ -30,3 +30,9 @@ repos:
     hooks:
       - id: markdownlint-cli2
         exclude: '^{{cookiecutter.project_slug}}/'
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.13.7
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]

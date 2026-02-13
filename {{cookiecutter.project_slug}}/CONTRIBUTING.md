@@ -54,6 +54,6 @@ uv run pytest
 ## 🚀 Submitting Changes
 
 1. Create a new branch.
-2. Make your changes.
-3. Ensure all tests pass and pre-commit checks are green.
-4. Submit a Pull Request.
+1. Make your changes.
+1. Ensure all tests pass and pre-commit checks are green.
+1. Submit a Pull Request.

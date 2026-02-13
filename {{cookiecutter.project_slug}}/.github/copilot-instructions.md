@@ -3,6 +3,7 @@
 This file provides context and rules for GitHub Copilot to ensure it follows the architectural and coding patterns of **{{ cookiecutter.project_name }}**.
 
 ## Project Stack
+
 - **Manager**: `uv` for dependency management and scripts.
 - **Build System**: `hatchling` (PEP 621) with `src/` layout.
 - **CLI**: `typer` for command-line interfaces.
@@ -10,6 +11,7 @@ This file provides context and rules for GitHub Copilot to ensure it follows the
 - **QA**: `ruff` for linting/formatting, `pytest` for testing.
 
 ## Coding Standards
+
 - **Python**: Target version {{ cookiecutter.python_version }}+.
 - **Linting & Quality**: Adhere strictly to the rules in `.pre-commit-config.yaml`. Always format Python code according to `ruff` and Markdown according to `mdformat`. Do not generate code that would fail pre-commit checks.
 - **Typing**: Use strict type hints for all function signatures.
@@ -18,11 +20,13 @@ This file provides context and rules for GitHub Copilot to ensure it follows the
 - **Configuration**: Use the centralized `AppConfig` model in `src/{{ cookiecutter.pkg_name }}/core/config.py`.
 
 ## Patterns
+
 - **CLI Commands**: Add new commands to `src/{{ cookiecutter.pkg_name }}/cli.py` or separate modules in `commands/`.
 - **Logging**: Use the built-in `logging` module, configured via `AppConfig.setup_logging()`.
 - **UI Text**: Store user-facing strings in `config/ui_text.yaml` rather than hardcoding.
 
 ## Workspace Layout
+
 - Source: `src/{{ cookiecutter.pkg_name }}/`
 - Documentation: `docs/` (includes ADRs and CONVENTIONS.md)
 - Tests: `tests/`

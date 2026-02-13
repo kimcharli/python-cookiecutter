@@ -8,10 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - {% now 'utc', '%Y-%m-%d' %}
 
 ### Added
+
 - Initial project generation via `python-cookiecutter`.
 - Basic CLI structure using `Typer`.
-{%- if cookiecutter.include_web_dashboard == "yes" %}
+  {%- if cookiecutter.include_web_dashboard == "yes" %}
 - FastAPI web server with HTMX and Tailwind CSS.
-{%- endif %}
+  {%- endif %}
 - Core configuration management with `AppConfig`.
 - Development environment setup with `uv` and `pre-commit`.
