@@ -29,6 +29,12 @@ cookiecutter gh:kimcharli/python-cookiecutter
 cookiecutter /path/to/python-cookiecutter
 ```
 
+## Development
+
+1. **Install dependencies**: `uv sync`
+1. **Setup hooks**: `make setup` (Configures `pre-commit` and `commit-msg` hooks)
+1. **Run tests**: `make test-all` (Verifies template generation and runs unit tests)
+
 You will be prompted for:
 
 | Variable                | Default      | Description                                  |

@@ -33,4 +33,5 @@ dev = [
     "mdformat-gfm>=0.1.13",
     "mdformat-frontmatter>=2.0.8",
     "commitizen>=4.13.7",
+    "cookiecutter>=2.6.0",
 ]
