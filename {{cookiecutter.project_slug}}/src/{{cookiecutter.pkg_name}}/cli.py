@@ -1,11 +1,10 @@
 {% if cookiecutter.include_cli == "yes" -%}
-import logging
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Optional
 
 import typer
 
-from .core.config import AppConfig
+from .core.config import Settings
 
 app = typer.Typer(
     help="{{ cookiecutter.description }}",
@@ -16,61 +15,60 @@ app = typer.Typer(
 @app.callback(invoke_without_command=True)
 def main_callback(
     ctx: typer.Context,
-    input_dir: Annotated[
-        Path,
+    config: Annotated[
+        Optional[Path],
         typer.Option(
-            "--input-dir",
-            "-i",
-            help="Directory containing input files.",
+            "--config",
+            help="Path to config.yaml (default: <project_root>/config.yaml).",
             exists=True,
-            file_okay=False,
-            dir_okay=True,
+            file_okay=True,
+            dir_okay=False,
             readable=True,
             resolve_path=True,
         ),
-    ] = Path("./data/input"),
+    ] = None,
+    show_config: Annotated[
+        bool,
+        typer.Option(
+            "--show-config",
+            help="Print effective settings (with sources) and exit.",
+        ),
+    ] = False,
+    input_dir: Annotated[
+        Optional[Path],
+        typer.Option("--input-dir", "-i", help="Override input_dir setting."),
+    ] = None,
     output_dir: Annotated[
-        Path,
-        typer.Option(
-            "--output-dir",
-            "-o",
-            help="Directory to save output results.",
-            file_okay=False,
-            dir_okay=True,
-            writable=True,
-            resolve_path=True,
-        ),
-    ] = Path("./data/output"),
-    log_file: Annotated[
-        Path | None,
-        typer.Option(
-            "--log-file",
-            "-l",
-            help="Path to the log file.",
-            file_okay=True,
-            dir_okay=False,
-            writable=True,
-            resolve_path=True,
-        ),
-    ] = Path("./data/logs/app.log"),
+        Optional[Path],
+        typer.Option("--output-dir", "-o", help="Override output_dir setting."),
+    ] = None,
     log_level: Annotated[
-        str,
-        typer.Option(
-            "--log-level",
-            help="Logging level (DEBUG, INFO, WARNING, ERROR).",
-        ),
-    ] = "INFO",
+        Optional[str],
+        typer.Option("--log-level", help="Override log_level setting (DEBUG/INFO/WARNING/ERROR)."),
+    ] = None,
 ):
     """{{ cookiecutter.description }}"""
-    config = AppConfig(
-        input_dir=input_dir,
-        output_dir=output_dir,
-        log_file=log_file,
-        log_level=log_level,
-    )
-    config.setup_logging()
+    # 1. Load settings: defaults → config.yaml → env vars
+    settings = Settings.load(config_path=config)
 
-    ctx.obj = config
+    # 2. Apply CLI overrides
+    if input_dir is not None:
+        settings.input_dir = input_dir.resolve()
+        settings._sources["input_dir"] = "arg --input-dir"
+    if output_dir is not None:
+        settings.output_dir = output_dir.resolve()
+        settings._sources["output_dir"] = "arg --output-dir"
+    if log_level is not None:
+        settings.log_level = log_level
+        settings._sources["log_level"] = "arg --log-level"
+
+    # 3. --show-config exits immediately
+    if show_config:
+        settings.show()
+        raise typer.Exit(0)
+
+    settings.setup_logging()
+    ctx.obj = settings
 
     if ctx.invoked_subcommand is None:
         typer.echo("Run --help to see available commands.")

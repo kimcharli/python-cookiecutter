@@ -42,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fix
 
+- add missing httpx dependency and fix TemplateResponse deprecation
 - ignore template directory in root pytest configuration
 
 ## v0.1.0 (2026-02-13)

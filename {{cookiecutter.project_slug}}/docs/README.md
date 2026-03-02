@@ -7,6 +7,11 @@ Welcome to the documentation for **{{ cookiecutter.project_name }}**.
 ### 📐 Design & Architecture
 
 - [Architecture Decision Records (ADR)](adr/): History of strategic technical choices.
+- [Spec-Driven Development (SDD)](sdd/README.md): Development practices this project follows.
+
+### 📋 Specs (Spec-First)
+
+- [Config spec](../specs/config.md): Settings table, env vars, resolution order, `--show-config` format.
 
 ### 📜 Guidelines
 

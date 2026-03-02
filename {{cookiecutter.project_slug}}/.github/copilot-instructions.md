@@ -17,13 +17,16 @@ This file provides context and rules for GitHub Copilot to ensure it follows the
 - **Typing**: Use strict type hints for all function signatures.
 - **Paths**: Use `pathlib.Path` exclusively; do not use `os.path`.
 - **Formatting**: Prefer f-strings for string interpolation.
-- **Configuration**: Use the centralized `AppConfig` model in `src/{{ cookiecutter.pkg_name }}/core/config.py`.
+- **Configuration**: Use the centralised `Settings` dataclass in `src/{{ cookiecutter.pkg_name }}/core/config.py`.
+  Load with `Settings.load()` — resolution order: CLI arg > env var > `config.yaml` > compiled-in default.
+  Never define `_WORKSPACE_ROOT` or hardcode paths outside `config.py`.
 
 ## Patterns
 
 - **CLI Commands**: Add new commands to `src/{{ cookiecutter.pkg_name }}/cli.py` or separate modules in `commands/`.
-- **Logging**: Use the built-in `logging` module, configured via `AppConfig.setup_logging()`.
+- **Logging**: Use the built-in `logging` module, configured via `settings.setup_logging()`.
 - **UI Text**: Store user-facing strings in `config/ui_text.yaml` rather than hardcoding.
+- **SDD**: Update `specs/config.md` before changing any setting. See `docs/sdd/` for all adopted practices.
 
 ## Workspace Layout
 

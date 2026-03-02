@@ -28,3 +28,19 @@ This document outlines the coding standards for the **{{ cookiecutter.project_na
   - `docs:` for documentation changes.
   - `refactor:` for code restructuring.
   - `test:` for adding or modifying tests.
+
+## 5. Spec-Driven Development (SDD)
+
+This project follows SDD: write the spec before the code.
+
+- **Config changes**: update `specs/config.md` before touching `config.py`.
+- **New configurable surface**: add a row to the settings table in `specs/config.md` first.
+- See [docs/sdd/README.md](sdd/README.md) for all adopted SDD practices.
+
+### Configuration Consolidation
+
+- All runtime settings live in `src/{{ cookiecutter.pkg_name }}/core/config.py` as the `Settings` dataclass.
+- Resolution order: `CLI arg > env var > config.yaml > compiled-in default`.
+- No `_WORKSPACE_ROOT` or hardcoded paths outside `config.py`.
+- Every CLI entry point exposes `--config` and `--show-config`.
+- See [docs/sdd/config-consolidation.md](sdd/config-consolidation.md) for the full practice.
